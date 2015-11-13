@@ -155,6 +155,7 @@ static void  init_cols(void)
     DDRF  &= ~(1<<0 | 1<<1 | 1<<4);
     PORTF |=  (1<<0 | 1<<1 | 1<<4);
     DDRB  &= ~(1<<0 | 1<<1 | 1<<2);
+    PORTB |=  (1<<0 | 1<<1 | 1<<2);
 }
 
 static matrix_row_t read_cols(void)
@@ -176,9 +177,9 @@ static matrix_row_t read_cols(void)
     return (PINF&(1<<0) ? 0 : (1<<0)) |
            (PINF&(1<<1) ? 0 : (1<<1)) |
            (PINF&(1<<4) ? 0 : (1<<2)) |
-           (PINB&(1<<0) ? 0 : (1<<5)) |
-           (PINB&(1<<1) ? 0 : (1<<7)) |
-           (PINB&(1<<2) ? 0 : (1<<9));
+           (PINB&(1<<0) ? 0 : (1<<3)) |
+           (PINB&(1<<1) ? 0 : (1<<4)) |
+           (PINB&(1<<2) ? 0 : (1<<5));
 }
 
 /* Row pin configuration
