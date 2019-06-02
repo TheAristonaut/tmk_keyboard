@@ -1,174 +1,85 @@
 #include "keymap_common.h"
 
+// fn_TYPE_SYM FN2
+// fn_TYPE_FN FN3
+// fn_TYPE_SHIFT FN4
+
+// kTILDE FN14
+// kRPAREN FN15
+// kBANG FN16
+// kATSIGN FN17
+// kPOUND FN18
+// kDOLLAR FN19
+// kPERCENT FN20
+// kCARRET FN21
+// kAMPERSAND FN22
+// kSTAR FN23
+// kLPAREN FN24
+// kLCURL FN25
+// kRCURL FN26
+// kLODASH FN27
+// kPLUS FN28
+// kLESSTHN FN29
+// kGREATRTHN FN30
+// kPIPE FN31
+
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 0: Qwerty Type Mode */
     KEYMAP(
-      BSLS,    P,    O,    I,    U,    Y, \
-      QUOT, SCLN,    L,    K,    J,    H, \
-       ENT, SLSH,  DOT, COMM,    M,    N, \
-         T,    R,    E,    W,    Q,  TAB, \
-         G,    F,    D,    S,    A, BSPC, \
-         B,    V,    C,    X,    Z,  ESC, \
-       FN9, FN11,  SPC, FN12, CAPS, \
-      RGUI, FN10, LCTL,  FN8, LALT \
+       TAB,  Q,  W,  E,  R,  T,    GRV,   Y,  U,    I,   O,    P, BSLS, \
+      BSPC,  A,  S,  D,  F,  G,   MINS,   H,  J,    K,   L, SCLN, QUOT, \
+       DEL,  Z,  X,  C,  V,  B,   FN27,   N,  M, COMM, DOT, SLSH,  ENT, \
+                        LALT,  FN4,  SPC,  RGUI,\
+                            FN2,  LCTL,  FN3\
     ),
-    /* 1: FPS Mode */
+    /* 1: Type Mode Sym Layer */
     KEYMAP(
-      BSLS,    P,    O,    I,    U,    Y, \
-      QUOT, SCLN,    L,    K,    J,    H, \
-       ENT, SLSH,  DOT, COMM,    M,    N, \
-         R,    E,    W,    Q,    1,  TAB, \
-         F,    D,    S,    A,    2, CAPS, \
-         V,    C,    X,    Z,    3,  ESC, \
-         G,    B, LSFT,  SPC,    T, \
-       FN7,  FN4, LCTL,  FN3, LALT \
+      TRNS,  GRV, FN14, FN25, FN26, FN31,   TRNS,   FN21,  7,  8,  9, FN20, TRNS, \
+      TRNS, FN17, FN19, FN24, FN15, FN22,   TRNS,   FN23,  4,  5,  6, MINS, FN28, \
+      TRNS, COMM,  DOT, LBRC, RBRC, FN16,   TRNS,   FN18,  1,  2,  3, TRNS,  EQL, \
+                                 TRNS,  TRNS,  TRNS,   0, \
+                                     TRNS,  TRNS,   DOT \
     ),
-    /* 2: MOBA Mode */
+    /* 2: Type Mode Fn Layer */
     KEYMAP(
-      BSLS,    P,    O,    I,    U,    Y, \
-      QUOT, SCLN,    L,    K,    J,    H, \
-       ENT, SLSH,  DOT, COMM,    M,    N, \
-         5,    4,    3,    2,    1,  GRV, \
-         T,    R,    E,    W,    Q,  TAB, \
-         G,    F,    D,    S,    A,  ESC, \
-         Y,    H,  SPC, LSFT,    P, \
-       FN7,  FN6, LCTL,  FN5,  LALT \
+       ESC,  F1,  F2,  F3,  F4, PSCR,   TRNS,   VOLU, HOME,   UP,  END, TRNS, TRNS, \
+      TRNS,  F5,  F6,  F7,  F8, SLCK,   TRNS,   VOLD, LEFT, DOWN, RGHT,  APP, TRNS, \
+      TRNS,  F9, F10, F11, F12, CALC,   TRNS,   MUTE, PGDN, PGUP,  INS, TRNS, TRNS, \
+                             TRNS,  TRNS,  TRNS,  TRNS, \
+                                 TRNS,  TRNS,  TRNS \
     ),
-    /* 3: FPS Mode: Sym Layer */
+    /* 3: Type Mode Shift Mode (underscore on win key) */
     KEYMAP(
-      FN21, FN23,    9,    8,    7, FN21, \
-      FN28, MINS,    6,    5,    4, FN23, \
-       EQL, TRNS,    3,    2,    1, FN20, \
-      TRNS, TRNS, TRNS, TRNS,    4, TRNS, \
-      TRNS, TRNS, TRNS, TRNS,    5, TRNS, \
-      TRNS, TRNS, TRNS, TRNS,    6, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, \
-         0, TRNS, TRNS, TRNS, TRNS \
-    ),
-    /* 4: FPS Mode: Fn Layer */
-    KEYMAP(
-      SLEP,  F10,   F9,   F8,   F7, VOLU, \
-      FN13,  F11,   F6,   F5,   F4, VOLD, \
-      TRNS,  F12,   F3,   F2,   F1, MUTE, \
-         I, TRNS, TRNS, TRNS,    7, TRNS, \
-         J, TRNS, TRNS, TRNS,    8, TRNS, \
-         M, TRNS, TRNS, TRNS,    9, TRNS, \
-      MPLY, MNXT, TRNS, TRNS, MPRV, \
-      TRNS, TRNS, TRNS, TRNS, TRNS \
-    ),
-    /* 5: MOBA Mode: Sym Layer */
-    KEYMAP(
-      FN21, FN23,    9,    8,    7, FN21, \
-      FN28, MINS,    6,    5,    4, FN23, \
-       EQL, TRNS,    3,    2,    1, FN20, \
-      TRNS,    7,    6, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-         B,    V,    C,    X,    Z, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, \
-         0, TRNS, TRNS, TRNS, TRNS \
-    ),
-    /* 6: MOBA Mode: Fn Layer */
-    KEYMAP(
-      SLEP,  F10,   F9,   F8,   F7, VOLU, \
-      FN13,  F11,   F6,   F5,   F4, VOLD, \
-      TRNS,  F12,   F3,   F2,   F1, MUTE, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      MPLY, MNXT, TRNS, TRNS, MPRV, \
-      TRNS, TRNS, TRNS, TRNS, TRNS \
-    ),
-    /* 7: Qwerty Chat Layer */
-    KEYMAP(
-      BSLS,    P,    O,    I,    U,    Y, \
-      QUOT, SCLN,    L,    K,    J,    H, \
-       ENT, SLSH,  DOT, COMM,    M,    N, \
-         T,    R,    E,    W,    Q,  TAB, \
-         G,    F,    D,    S,    A, BSPC, \
-         B,    V,    C,    X,    Z,  ESC, \
-       FN9, FN11,  SPC, FN12, CAPS, \
-      TRNS, FN10, LCTL,  FN8, LALT \
-    ),
-    /* 8: Type and Chat Mode: Sym Layer */
-    KEYMAP(
-      FN30, FN29,    9,    8,    7, FN21, \
-      FN28, MINS,    6,    5,    4, FN23, \
-       EQL, TRNS,    3,    2,    1, FN20, \
-      FN22, FN26, FN25, FN14,  GRV, TRNS, \
-      FN18, FN15, FN24, FN19, FN17, TRNS, \
-      FN16, RBRC, LBRC,    X,    Z, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, \
-         0,  DOT, TRNS, TRNS, TRNS \
-    ),
-    /* 9: Type and Chat Mode: Fn Layer */
-    KEYMAP(
-      SLEP,  F10,   F9,   F8,   F7, VOLU, \
-      FN13,  F11,   F6,   F5,   F4, VOLD, \
-      TRNS,  F12,   F3,   F2,   F1, MUTE, \
-      MPRV,  END,   UP, HOME, SLCK, TRNS, \
-      MPLY, RGHT, DOWN, LEFT,  DEL, TRNS, \
-      MNXT, PGDN, PGUP,  INS,  APP, TRNS, \
-      CALC, TRNS, TRNS, TRNS, PSCR, \
-      TRNS, TRNS, TRNS, TRNS, TRNS \
-    ),
-    /* 10: Type Mode: Shift Mode (underscore on win key) */
-    KEYMAP(
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, \
-      FN27, TRNS, TRNS, TRNS, TRNS \
-    ),
-    /**
-     * 11: Layout Selection Layer:
-     *    1 or q  -Typing Mode
-     *    2 or w  -FPS Mode
-     *    3 or e  -MOBA Mode
-     **/
-    KEYMAP(
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS,  FN2,  FN1,  FN0, TRNS, \
-      TRNS, TRNS,  FN2,  FN1,  FN0, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS, \
-      TRNS, TRNS, TRNS, TRNS, TRNS \
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,   TRNS,   TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,   TRNS,   TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+      TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,   TRNS,   TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+                                 TRNS,  TRNS,  TRNS,  FN27, \
+                                     TRNS,  TRNS,  TRNS \
     ),
 };
 
-#define TYPE_MODE 0
-#define FPS_MODE 1
-#define MOBA_MODE 2
-#define FPS_SYM_LAYER 3
-#define FPS_FN_LAYER 4
-#define MOBA_SYM_LAYER 5
-#define MOBA_FN_LAYER 6
-#define CHAT_LAYER 7
-#define TYPE_SYM_LAYER 8
-#define TYPE_FN_LAYER 9
-#define TYPE_SHIFT_LAYER 10
-#define LAYOUT_LAYER 11
+#define lTYPE_MODE 0
+#define lTYPE_SYM_LAYER 1
+#define lTYPE_FN_LAYER 2
+#define lTYPE_SHIFT_LAYER 3
 
 const uint16_t PROGMEM fn_actions[] = {
     /* Poker Layout */
-    [0] = ACTION_DEFAULT_LAYER_SET(TYPE_MODE),
-    [1] = ACTION_DEFAULT_LAYER_SET(FPS_MODE),
-    [2] = ACTION_DEFAULT_LAYER_SET(MOBA_MODE),
-    [3] = ACTION_LAYER_MOMENTARY(FPS_SYM_LAYER),
-    [4] = ACTION_LAYER_MOMENTARY(FPS_FN_LAYER),
-    [5] = ACTION_LAYER_MOMENTARY(MOBA_SYM_LAYER),
-    [6] = ACTION_LAYER_MOMENTARY(MOBA_FN_LAYER),
-    [7] = ACTION_LAYER_TOGGLE(CHAT_LAYER),
-    [8] = ACTION_LAYER_MOMENTARY(TYPE_SYM_LAYER),
-    [9] = ACTION_LAYER_TOGGLE(TYPE_SYM_LAYER),
-    [10] = ACTION_LAYER_MOMENTARY(TYPE_FN_LAYER),
-    [11] = ACTION_LAYER_TOGGLE(TYPE_FN_LAYER),
-    [12] = ACTION_LAYER_MODS(TYPE_SHIFT_LAYER, MOD_LSFT),
-    [13] = ACTION_LAYER_TOGGLE(LAYOUT_LAYER),
+    [0] = ACTION_NO,
+    [1] = ACTION_NO,
+    [2] = ACTION_LAYER_MOMENTARY(lTYPE_SYM_LAYER),
+    [3] = ACTION_LAYER_MOMENTARY(lTYPE_FN_LAYER),
+    [4] = ACTION_LAYER_MODS(lTYPE_SHIFT_LAYER, MOD_LSFT),
+
+    [5] = ACTION_NO,
+    [6] = ACTION_NO,
+    [7] = ACTION_NO,
+    [8] = ACTION_NO,
+    [9] = ACTION_NO,
+    [10] = ACTION_NO,
+    [11] = ACTION_NO,
+    [12] = ACTION_NO,
+    [13] = ACTION_NO,
 
     [14] = ACTION_MODS_KEY(MOD_RSFT, KC_GRV),  // ~ key
     [15] = ACTION_MODS_KEY(MOD_RSFT, KC_0),  // ) key
@@ -187,18 +98,10 @@ const uint16_t PROGMEM fn_actions[] = {
     [28] = ACTION_MODS_KEY(MOD_RSFT, KC_EQL), // + key
     [29] = ACTION_MODS_KEY(MOD_RSFT, KC_COMM), // < key
     [30] = ACTION_MODS_KEY(MOD_RSFT, KC_DOT), // > key
+    [31] = ACTION_MODS_KEY(MOD_RSFT, KC_BSLS), // | key
 };
 
 #undef TYPE_MODE
-#undef FPS_MODE
-#undef MOBA_MODE
-#undef FPS_SYM_LAYER
-#undef FPS_FN_LAYER
-#undef MOBA_SYM_LAYER
-#undef MOBA_FN_LAYER
-#undef CHAT_LAYER
 #undef TYPE_SYM_LAYER
 #undef TYPE_FN_LAYER
 #undef TYPE_SHIFT_LAYER
-#undef LAYOUT_LAYER
-
